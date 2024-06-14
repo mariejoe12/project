@@ -6,7 +6,8 @@ import { CapitalizeFirstLetterPipe } from './capitalizefirstletter.pipe';
 import { BooksPricesComponent } from './books-prices/books-prices.component';
 import { PriceColorDirective } from './price-color.directive';
 import { FormsModule } from '@angular/forms';
-
+import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [AppComponent, 
     ClientComponent, 
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
 ],
 
   imports: [BrowserModule,
-    FormsModule
+    FormsModule, AppRoutingModule,
+     ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

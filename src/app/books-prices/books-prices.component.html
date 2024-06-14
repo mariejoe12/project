@@ -1,5 +1,6 @@
 <div class="container">
     <h2>Books and Prices</h2>
+    <p>Welcome, {{ clientName | capitalizeFirstLetter}}!</p>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -23,5 +24,9 @@
       </tbody>
     </table>
     <p>Total Price: {{ getTotalPrice() }}</p>
+    <button (click)="completeShop()">Complete Shop</button>
+    <div *ngIf="shopCompleted" class="success-message">
+      Your shop is successfully completed!
+    </div>
   </div>
   
