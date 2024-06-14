@@ -7,7 +7,7 @@ import { BooksPricesComponent } from './books-prices/books-prices.component';
 const routes: Routes = [
   { path: '', redirectTo: '/client', pathMatch: 'full' },
   { path: 'client', component: ClientComponent },
-  { path: 'booksprices', component: BooksPricesComponent },
+  { path: 'books', component: BooksPricesComponent },
   { path: 'lazy', loadChildren: () => import('./lazy/lazy.module').then(m => m.LazyModule) }
 ];
 
