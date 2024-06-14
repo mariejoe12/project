@@ -1,32 +1,31 @@
 <div class="container">
-    <h2>Books and Prices</h2>
-    <p>Welcome, {{ clientName | capitalizeFirstLetter}}!</p>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Book Title</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let book of books">
-          <td>{{ book.title }}</td>
-          <td>{{ book.price }}</td>
-          <td>
-            <input type="number" [(ngModel)]="book.quantity">
-          </td>
-          <td [appPriceColor]="book.price * book.quantity" data-bs-toggle="tooltip" title="Total price">
-            {{ book.price * book.quantity }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <p>Total Price: {{ getTotalPrice() }}</p>
-    <button (click)="completeShop()">Complete Shop</button>
-    <div *ngIf="shopCompleted" class="success-message">
-      Your shop is successfully completed!
-    </div>
+  <h2>Books and Prices</h2>
+  <p>Welcome, {{ clientName | capitalizeFirstLetter}}!</p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Book Title</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{ book.title }}</td>
+        <td>{{ book.price }}</td>
+        <td>
+          <input type="number" [(ngModel)]="book.quantity">
+        </td>
+        <td [appPriceColor]="book.price * book.quantity" data-bs-toggle="tooltip" title="Total price">
+          {{ book.price * book.quantity }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Total Price: {{ getTotalPrice() }}</p>
+  <button (click)="completeShop()">Complete Shop</button>
+  <div *ngIf="shopCompleted" class="success-message">
+    Your shop is successfully completed!
   </div>
-  
+</div>

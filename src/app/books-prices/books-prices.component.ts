@@ -14,9 +14,11 @@ export class BooksPricesComponent implements AfterViewInit {
     this.clientName = navigation?.extras.state?.['name'] || 'Guest';
   }
   books = [
-    { title: 'Book 1', price: 10, quantity: 0 },
-    { title: 'Book 2', price: 20, quantity: 0 },
-    { title: 'Book 3', price: 30, quantity: 0 }
+    { title: ' Take me with you', price: 17, quantity: 0 },
+    { title: ' Being the best version of me', price: 16, quantity: 0 },
+    { title: ' forgive yourself', price: 25, quantity: 0 },
+    { title: ' The lord of the rings', price: 10, quantity: 0 },
+    { title: ' The little prince ', price: 15, quantity: 0 }
   ];
 
   getTotalPrice(): number {
