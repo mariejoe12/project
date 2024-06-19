@@ -16,6 +16,11 @@
       </div>
     </div>
 
-    <button type="submit" [disabled]="clientForm.invalid" class="submit-button">Submit</button>
+    <button type="submit" [disabled]="clientForm.invalid">Submit</button>
   </form>
+</div>
+
+<div *ngIf="randomDogImageUrl" class="random-dog-image-container">
+  <h2 style="text-align: center;color: darkturquoise;">Random Dog Image:</h2>
+  <img [src]="randomDogImageUrl" alt="Random Dog">
 </div>

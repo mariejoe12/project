@@ -7,7 +7,10 @@ import { BooksPricesComponent } from './books-prices/books-prices.component';
 import { PriceColorDirective } from './price-color.directive';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms'; 
+import { ApiService } from './api.service';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent, 
     ClientComponent, 
@@ -18,9 +21,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 
   imports: [BrowserModule,
     FormsModule, AppRoutingModule,
-     ReactiveFormsModule
+     ReactiveFormsModule,HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}                       
