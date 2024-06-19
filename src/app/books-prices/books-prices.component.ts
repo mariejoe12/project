@@ -33,6 +33,14 @@ export class BooksPricesComponent implements AfterViewInit {
     });
   }
   completeShop() {
-    this.shopCompleted = true;
+    // Calculate total price
+    const totalPrice = this.getTotalPrice();
+    // Show confirmation dialog
+    if (confirm(`Are you sure you want to buy books with a total price of ${totalPrice} USD?`)) {
+      this.shopCompleted = true;
+      // Reset quantities of books to 0
+      this.books.forEach(book => book.quantity = 0);
+    }
+    // If user clicks 'Cancel' on the confirmation dialog, do nothing
   }
 }

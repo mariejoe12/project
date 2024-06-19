@@ -17,8 +17,14 @@ export class ApiService {
     console.log('ApiService.getRandomDog called'); 
     return this.http.get<any>(`${this.baseUrl}breeds/image/random`);
   }
+
+  postData(data: any): Observable<any> {
+    console.log('ApiService.postData called');
+    return this.http.post<any>(`${this.baseUrl}your-endpoint`, data);
+  }
+
   test() : void { 
-    alert('hi');
+    alert('Are you ready');
   }
 
   // Add other methods to interact with the Dog API as needed
