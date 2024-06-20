@@ -1,17 +1,25 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, AfterViewInit,OnInit } from '@angular/core';
+//import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router'; 
 @Component({
   selector: 'app-books-prices',
   templateUrl: './books-prices.component.html',
   styleUrls: ['./books-prices.component.scss']
 })
-export class BooksPricesComponent implements AfterViewInit {
-  clientName: string ;
+export class BooksPricesComponent implements AfterViewInit ,OnInit{
+ // clientName: string ;
+ clientName: string = 'Guest';
   shopCompleted: boolean = false;
 
-  constructor(private router: Router) {
-    const navigation = this.router.getCurrentNavigation();
-    this.clientName = navigation?.extras.state?.['name'] || 'Guest';
+  //constructor(private router: Router) {
+  //  const navigation = this.router.getCurrentNavigation();
+   // this.clientName = navigation?.extras.state?.['name'] || 'Guest';
+ // }
+ constructor(private route: ActivatedRoute) {}
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.clientName = params['name'] || 'Guest';
+    });
   }
   books = [
     { title: ' Take me with you', price: 17, quantity: 0 },

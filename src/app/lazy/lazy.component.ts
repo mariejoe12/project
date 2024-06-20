@@ -2,11 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-lazy',
-  standalone: true,
-  imports: [],
-  templateUrl: './lazy.component.html',
-  styleUrl: './lazy.component.scss'
+  template: `<h1>Lazy Component</h1>`
 })
-export class LazyComponent {
-
-}
+export class LazyComponent { }

@@ -26,12 +26,19 @@ export class ClientComponent implements OnInit {
       });
     }
   
-    onSubmit() {
-      if (this.clientForm.valid) {
-        const clientName = this.clientForm.get('name')?.value;
-        this.router.navigate(['/books'], { state: { name: clientName } });
-      }
+    //onSubmit() {
+    //  if (this.clientForm.valid) {
+       // const clientName = this.clientForm.get('name')?.value;
+       // this.router.navigate(['/books'], { state: { name: clientName } });
+     // }
+   // }
+  
+   onSubmit(): void {
+    if (this.clientForm.valid) {
+      const clientName = this.clientForm.get('name')?.value;
+      this.router.navigate([`/lazy/books/${clientName}`]); // Navigate to lazy-loaded route with client name
     }
+  }
     randomDogImageUrl!: string;
 
     
