@@ -1,20 +1,26 @@
-<div class="container">
-    <h2>Client Information</h2>
-    <form>
-      <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" class="form-control" id="name" [(ngModel)]="client.name">
+<div class="client-form-container">
+  <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name" type="text" class="form-control">
+      <div *ngIf="clientForm.get('name')?.invalid && clientForm.get('name')?.touched" class="error-message">
+        Name is required
       </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email" [(ngModel)]="client.email">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input id="email" formControlName="email" type="email" class="form-control">
+      <div *ngIf="clientForm.get('email')?.invalid && clientForm.get('email')?.touched" class="error-message">
+        Enter a valid email
       </div>
-      <div class="form-group">
-        <label for="address">Address:</label>
-        <input type="text" class="form-control" id="address" [(ngModel)]="client.address">
-      </div>
-    </form>
-    <p>Client Name: {{ client.name | capitalizeFirstLetter }}</p>
-    <p>Client Email: {{ client.email }}</p>
-    <p>Client Address: {{ client.address |  capitalizeFirstLetter}}</p>
-  </div>
+    </div>
+
+    <button type="submit" [disabled]="clientForm.invalid">Submit</button>
+  </form>
+</div>
+
+<div *ngIf="randomDogImageUrl" class="random-dog-image-container">
+  <h2 style="text-align: center;color: darkturquoise;">Random Dog Image:</h2>
+  <img [src]="randomDogImageUrl" alt="Random Dog">
+</div>

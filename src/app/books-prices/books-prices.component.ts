@@ -1,15 +1,24 @@
 import { Component, AfterViewInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-books-prices',
   templateUrl: './books-prices.component.html',
   styleUrls: ['./books-prices.component.scss']
 })
 export class BooksPricesComponent implements AfterViewInit {
+  clientName: string ;
+  shopCompleted: boolean = false;
+
+  constructor(private router: Router) {
+    const navigation = this.router.getCurrentNavigation();
+    this.clientName = navigation?.extras.state?.['name'] || 'Guest';
+  }
   books = [
-    { title: 'Book 1', price: 10, quantity: 1 },
-    { title: 'Book 2', price: 20, quantity: 1 },
-    { title: 'Book 3', price: 30, quantity: 1 }
+    { title: ' Take me with you', price: 17, quantity: 0 },
+    { title: ' Being the best version of me', price: 16, quantity: 0 },
+    { title: ' forgive yourself', price: 25, quantity: 0 },
+    { title: ' The lord of the rings', price: 10, quantity: 0 },
+    { title: ' The little prince ', price: 15, quantity: 0 }
   ];
 
   getTotalPrice(): number {
@@ -22,5 +31,16 @@ export class BooksPricesComponent implements AfterViewInit {
     tooltipTriggerList.forEach(tooltipTriggerEl => {
       new (window as any).bootstrap.Tooltip(tooltipTriggerEl);
     });
+  }
+  completeShop() {
+    // Calculate total price
+    const totalPrice = this.getTotalPrice();
+    // Show confirmation dialog
+    if (confirm(`Are you sure you want to buy books with a total price of ${totalPrice} USD?`)) {
+      this.shopCompleted = true;
+      // Reset quantities of books to 0
+      this.books.forEach(book => book.quantity = 0);
+    }
+    // If user clicks 'Cancel' on the confirmation dialog, do nothing
   }
 }
